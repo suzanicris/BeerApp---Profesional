@@ -7,6 +7,7 @@ type ContextProps = {
   addFavorite: (beer: Beer) => void;
   removeFavorite: (id: string) => void;
   removeAllFavorite: () => void;
+  getIsFavorite: (id: string) => boolean;
 };
 
 export const Context = createContext<ContextProps>({
@@ -14,6 +15,7 @@ export const Context = createContext<ContextProps>({
   addFavorite: () => {},
   removeFavorite: () => {},
   removeAllFavorite: () => {},
+  getIsFavorite: () => false,
 });
 
 const BeerFavoriteContext = ({ children }: { children: React.ReactNode }) => {
@@ -22,6 +24,9 @@ const BeerFavoriteContext = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     updateFavoriteList(favoriteList);
   }, [favoriteList]);
+
+  const getIsFavorite = (id: string) =>
+    Boolean(favoriteList.find((beer) => beer.id === id));
 
   const addFavorite = (beer: Beer) => {
     setFavoriteList([...favoriteList, beer]);
@@ -38,7 +43,13 @@ const BeerFavoriteContext = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <Context.Provider
-      value={{ favoriteList, addFavorite, removeFavorite, removeAllFavorite }}
+      value={{
+        favoriteList,
+        addFavorite,
+        removeFavorite,
+        removeAllFavorite,
+        getIsFavorite,
+      }}
     >
       {children}
     </Context.Provider>

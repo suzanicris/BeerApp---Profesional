@@ -12,21 +12,16 @@ const Router = () => (
   <BrowserRouter>
     <Menu>
       <Offline />
-      <Routes>
-        <Route
-          index
-          element={
-            <BeerFavoriteContext>
-              <Home />
-            </BeerFavoriteContext>
-          }
-        />
-        <Route path="beer">
-          <Route index element={<BeerList />} />
-          <Route path=":id" element={<Beer />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <BeerFavoriteContext>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="beer">
+            <Route index element={<BeerList />} />
+            <Route path=":id" element={<Beer />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BeerFavoriteContext>
       <Footer />
     </Menu>
   </BrowserRouter>

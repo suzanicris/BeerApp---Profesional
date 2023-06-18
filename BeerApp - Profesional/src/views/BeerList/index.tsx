@@ -61,8 +61,8 @@ const BeerList = () => {
                   label="Sort by"
                   onChange={handleSelectChange}
                 >
-                  <MenuItem value="asc">ascending</MenuItem>
-                  <MenuItem value="desc">descending</MenuItem>
+                  <MenuItem value="asc">A to Z</MenuItem>
+                  <MenuItem value="desc">Z to A</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
