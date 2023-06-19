@@ -34,6 +34,7 @@ const AutocompleteAsync = () => {
       getOptionLabel={(option) => option.name}
       options={options}
       onChange={(_, value) => navigate("/beer/" + value!.id)}
+      noOptionsText={!value ? 'Start typing to search...' : 'No beer found.'}
       renderInput={(params) => (
         <TextField
           {...params}
