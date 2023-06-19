@@ -22,7 +22,8 @@ const BeerCard = ({ beer }: BeerCardProps) => {
       <CardHeader
         title={
           <>
-            <FavoriteButton beer={beer} /> {name}
+            <FavoriteButton beer={beer} />
+            <span style={{ marginLeft: 16 }}>{name}</span>
           </>
         }
         subheader={`${state}, ${country}.`}
