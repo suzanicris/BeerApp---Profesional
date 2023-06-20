@@ -38,7 +38,7 @@ const BeerCard = ({ beer }: BeerCardProps) => {
           href={website_url}
           target="_blank"
         >
-          Learn more
+          Website
         </Button>
       </CardActions>
     </Card>

@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { getFavoriteList, updateFavoriteList } from "../utils/localStorage";
 import { Beer } from "../types";
 
-type ContextProps = {
+export type ContextProps = {
   favoriteList: Beer[];
   addFavorite: (beer: Beer) => void;
   removeFavorite: (id: string) => void;

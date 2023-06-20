@@ -15,8 +15,9 @@ const FavoriteButton = ({ beer }: FavoriteButtonProps) => {
   return (
     <IconButton
       edge="end"
-      aria-label="favorite"
+      aria-label={isFavorite ? "favorite" : "not-favorite"}
       onClick={() => (isFavorite ? removeFavorite(beer.id) : addFavorite(beer))}
+      title={isFavorite ? "Remove from favorite" : "Add to favorite"}
     >
       {isFavorite ? (
         <StarIcon color="primary" />
